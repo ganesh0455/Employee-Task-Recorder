@@ -1,0 +1,97 @@
+// sign up with new user details
+
+POST http://localhost:8001/signUp
+Content-Type: application/json
+
+{
+    "name":"ganesh",
+    "email":"cheu@gmail.com",
+    "password":"rgukt123",
+    "gdoId":1,
+    "projId":1,
+    "roleId":1
+}
+
+###
+// login
+
+POST http://localhost:8001/login
+Content-Type: application/json
+
+{
+    "email":"ganesh@gmail.com",
+    "password":"rgukt123"
+}
+
+###
+
+//add task of particular emp/manager/admin
+
+POST http://localhost:8001/addtask?empId=1
+Content-Type: application/json
+
+{
+    "tasks":"Done in BKI 2"
+}
+
+###
+
+//View Tasks for particular employee
+
+GET http://localhost:8001/viewtask?empId=1&roleName=manager
+
+###
+
+//update task
+PUT http://localhost:8001/updateTask?taskId=3
+Content-Type: application/json
+
+{
+    "tasks":"Done in BKI 110000000"
+}
+
+###
+
+//delete task
+DELETE http://localhost:8001/deleteTask?taskId=3
+
+###
+// Approved particular Emp or Manager tasks 
+
+GET http://localhost:8001/approvedEmpTasks?empId=1&role=employee
+
+###
+// Rejected particular Emp or Manager tasks 
+
+GET http://localhost:8001/rejectedEmpTasks?empId=1&role=employee
+
+###
+// showing the employee pending tasks 
+//if task pending at Manager Mstatus='Pending'
+//if task Approved by manager and task still not approved by admin Mstatus="Aproved" and Astatus="Approved"
+
+GET http://localhost:8001/empPendingTasksAtManagerOrAdmin?empId=1&role=admin
+
+###
+
+//Get All managers
+
+GET http://localhost:8001/allManagers
+
+###
+
+//Get all pending tasks of manager to get approval(Approve or Reject) from Admin
+
+GET http://localhost:8001/managerPendingTasksAtAdmin?managerId=9
+
+###
+
+//Projects under GDO
+
+GET http://localhost:8001/projectsUnderGdo?gdoId=1
+
+###
+
+//Employees under particular project 
+
+GET http://localhost:8001/empsUnderProject?projId=1

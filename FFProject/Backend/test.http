@@ -1,0 +1,185 @@
+GET http://localhost:8001/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNoZXRodUBnbWFpbC5jb20iLCJpYXQiOjE2NjM1MTQ4NTB9.-GV9eUT1mKJWhyTI1RRgIrdhrj_MyzFwJTAH7I3CCKs
+
+###
+
+//insert roles
+POST http://localhost:8001/role
+Content-Type: application/json
+
+{
+    "roleName":"admin"
+}
+
+####
+
+//insert GDO
+POST http://localhost:8001/gdo
+Content-Type: application/json
+
+{
+    "gdoName":"Gdo4"
+}
+
+###
+
+POST http://localhost:8001/project/1
+Content-Type: application/json
+
+{
+    "projName":"PLM"
+}
+
+###
+// finde user exist or not
+POST http://localhost:8001/oneuser
+Content-Type: application/json
+
+{
+    "email":"chetu@gmail.com"
+}
+
+###
+//insert employee details
+POST http://localhost:8001/employee
+Content-Type: application/json
+
+{
+    "name":"Chethu V",
+    "email":"chethu@gmail.com",
+    "password":"rgukt123",
+    "gdoId":1,
+    "projId":1,
+    "roleId":1
+}
+
+###
+
+//insert task
+POST http://localhost:8001/addtask
+Content-Type: application/json
+
+{
+    "eId":1,
+    "tasks":"Done in BKI"
+}
+
+###
+//View Task
+
+GET http://localhost:8001/viewtask?empId=1
+
+###
+
+// sign up with new user details
+
+POST http://localhost:8001/signUp
+Content-Type: application/json
+
+{
+    "name":"ganesh",
+    "email":"cheu@gmail.com",
+    "password":"rgukt123",
+    "gdoId":1,
+    "projId":1,
+    "roleId":1
+}
+
+###
+//login 
+
+POST http://localhost:8001/login
+Content-Type: application/json
+
+{
+    "email":"ganesh@gmail.com",
+    "password":"rgukt123"
+}
+
+###
+
+//update task
+
+PUT http://localhost:8001/updateTask/29
+Content-Type: application/json
+
+{
+    "tasks":"Done in HMIS 3333"
+}
+
+###
+
+//add task
+
+POST http://localhost:8001/addtask?empId=1
+Content-Type: application/json
+
+{
+    "tasks":"Done in BKI 1"
+}
+###
+//update task
+PUT http://localhost:8001/updateTask?taskId=3
+Content-Type: application/json
+
+{
+    "tasks":"Done in BKI 110000000"
+}
+
+###
+//delete task
+DELETE http://localhost:8001/deleteTask?taskId=133
+###
+
+GET http://localhost:8001/roleJoinEmp?roleId=2
+
+###
+
+GET http://localhost:8001/role?roleId=2
+
+###
+GET http://localhost:8001/projectsUnderGdo?gdoId=1
+
+###
+GET http://localhost:8001/joinall?gdoId=1
+
+###
+GET http://localhost:8001/empTask?empId=1
+
+####
+
+GET http://localhost:8001/joinroleempproj?gdoId=2
+
+###
+GET http://localhost:8001/tasksOfEmpUnderProjUnderGdo?gdoId=1&empId=1
+
+###
+PUT http://localhost:8001/ApproveORreject?taskId=43&roleName=admin&status=Approved
+
+###
+//  Approved/Rejected tasks for particular emp
+GET http://localhost:8001/approvedEmpTasks?empId=2
+
+####
+//  Approved/Rejected tasks for particular manager
+GET http://localhost:8001/approvedManagerTasks?ManagerId=9&roleId=2&status=Approved
+
+
+
+//Rejected tasks of particular Emp/Manager
+GET http://localhost:8001/reject?empId=4&role=manager
+
+###
+
+//Approved tasks of particular Emp/Manager
+GET http://localhost:8001/approve?empId=4&role=employee
+
+###
+
+//All Employees under particular Manager
+GET http://localhost:8001/managerEmps?gdoId=2
+
+###
+//One emp task
+
+GET http://localhost:8001/viewtask?empId=1

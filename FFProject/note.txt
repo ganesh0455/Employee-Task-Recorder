@@ -1,0 +1,9 @@
+"triggerUncaughtException(err, true /* fromPromise */);" this error occurs when giving are try ro accessing wrong "column name" 
+
+"TypeError: Router.use() requires middleware function but got a Object" this occurs when we are missing "module.exports" for any one of the js file and if you give wrong request type(ex:giving get req for Put req)
+
+"throw new sequelizeErrors.EagerLoadingError(`${targetModel.name} is not associated to ${this.name}!`)" this error occur when you give wrong associations or you haven't mention the associations
+
+"ErrorCaptureStackTrace(err);
+    ^
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client" this error occurs when you give as res.send(400), actually we have to give like res.status(400)
